@@ -201,7 +201,8 @@ function calculate() {
   const sStat = stats[role.secondary];
   const pEfficiency = efficiency(pStat, role.p);
   const sEfficiency = efficiency(sStat, role.s);
-  const combined = pEfficiency + sEfficiency;
+  const baseCombined = pEfficiency + sEfficiency;
+  const combined = baseCombined + 2;
 
   totalEl.textContent = combined.toFixed(2) + " points";
   summaryEl.textContent = combined >= 90
@@ -226,7 +227,7 @@ function calculate() {
       Actual: ${fmt(sStat)} / Required: ${fmt(role.s)}<br>
       Efficiency: <b>${sEfficiency.toFixed(2)} points</b>
     </div>
-    <div class="stat-row"><b>Combined efficiency:</b> ${combined.toFixed(2)} points</div>
+    <div class="stat-row"><b>Final efficiency:</b> ${combined.toFixed(2)} points</div>
   `;
 }
 
